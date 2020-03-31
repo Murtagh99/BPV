@@ -1,9 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.IO;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Adressdaten.Models;
+using Newtonsoft.Json.Linq;
 
 namespace Adressdaten.Controllers
 {
@@ -15,10 +19,14 @@ namespace Adressdaten.Controllers
 
         public AdressdatenController(AdressdatenContext context)
         {
+
             _context = context;
 
             if (_context.AdressdatenItems.Count() == 0)
             {
+                JArray Adressdaten = JArray.Parse(System.IO.File.ReadAllText("Adressen/Adressdaten.json"));
+                Console.WriteLine(Adressdaten.SelectToken("[0].Id"));
+                Console.WriteLine("finder");
                 // Create a new AdressdatenItem if collection is empty,
                 // which means you can't delete all AdressdatenItems.
                 _context.AdressdatenItems.Add(new AdressdatenItem { Name = "Item1" });

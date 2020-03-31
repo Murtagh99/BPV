@@ -1,0 +1,17 @@
+[
+  {
+    "Id": 1,
+    "Name": "Item1",
+    "IsComplete": false
+  },
+  {
+    "Id": 2,
+    "Name": "Item2",
+    "IsComplete": false
+  },
+  {
+    "Id": 3,
+    "Name": "Item3",
+    "IsComplete": true
+  }
+]
