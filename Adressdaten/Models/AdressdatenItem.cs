@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Adressdaten.Models
 {
     public class AdressdatenItem
     {
-        public long Id { get; set; }
+        [Key]
+        public string PostCode { get; set; }
         public string Name { get; set; }
-        public bool IsComplete { get; set; }
     }
 }
+
