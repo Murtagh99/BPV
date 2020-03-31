@@ -1,17 +1,14 @@
 [
   {
-    "Id": 1,
-    "Name": "Item1",
-    "IsComplete": false
+    "PostCode": "44139",
+    "Name": "Dortmund"
   },
   {
-    "Id": 2,
-    "Name": "Item2",
-    "IsComplete": false
+    "PostCode": "59399",
+    "Name": "Olfen"
   },
   {
-    "Id": 3,
-    "Name": "Item3",
-    "IsComplete": true
+    "PostCode": "59379",
+    "Name": "Selm"
   }
 ]

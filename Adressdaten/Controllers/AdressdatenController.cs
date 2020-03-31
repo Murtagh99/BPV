@@ -1,12 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.IO;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Adressdaten.Models;
-using System.Net;
 using Newtonsoft.Json;
-using System;
+using Adressdaten.Models;
+using Newtonsoft.Json.Linq;
 
 namespace Adressdaten.Controllers
 {
@@ -21,11 +22,12 @@ namespace Adressdaten.Controllers
             _context = context;
 
             if (_context.AdressdatenItems.Count() == 0)
-            {               
-                // Create a new AdressdatenItem if collection is empty,
-                // which means you can't delete all AdressdatenItems.
-                _context.AdressdatenItems.Add(new AdressdatenItem { PostCode = "44339", Name = "Dortmund" });
-                _context.AdressdatenItems.Add(new AdressdatenItem { PostCode = "59399", Name = "Olfen" });
+            {
+                JArray Adressdaten = JArray.Parse(System.IO.File.ReadAllText("Adressen/Adressdaten.json"));
+                for (int i = 0; i < Adressdaten.Count; i++)
+                {
+                    _context.AdressdatenItems.Add(new AdressdatenItem { PostCode = Adressdaten.SelectToken("[" + i + "].PostCode").ToString(), Name = Adressdaten.SelectToken("[" + i + "].Name").ToString() });
+                }
                 _context.SaveChanges();
             }
         }
