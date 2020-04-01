@@ -22,6 +22,8 @@ namespace Adressdaten.Controllers
         {
             _context = context;
 
+            //var cities = _context.Cities.Include(city => city.Streets).ToList();
+
             //if (_context.Cities.Count() == 0)
             //{
             //    var importedCities = JsonConvert.DeserializeObject<ImportCity[]>(System.IO.File.ReadAllText("Adressen/Cities.json"));
@@ -80,13 +82,13 @@ namespace Adressdaten.Controllers
             return await AdressdatenItem.ToListAsync();
         }
 
-        //// GET: api/Adressdaten/5
-        //[HttpGet("postalcode={postcode}&street={street}")]
-        //public async Task<ActionResult<IList<Cities>>> GetStreet(string postcode, string street)
-        //{
-        //    var AdressdatenItem = _context.Cities.Where(a => a.PostCode.Contains(postcode) && a.Streets.ToLower().StartsWith(street));
-        //    return await AdressdatenItem.ToListAsync();
-        //}
+        // GET: api/Adressdaten/5
+        [HttpGet("postalcode={postcode}&street={street}")]
+        public async Task<ActionResult<IList<Streets>>> GetStreet(string postcode, string street)
+        {     
+            var AdressdatenItem = _context.Streets.Where(a => a.PostCodeFK.Contains(postcode) && a.Name.ToLower().StartsWith(street)).Include(s => s.Cities);
+            return await AdressdatenItem.ToListAsync();
+        }
 
         //[HttpGet("streetpostalcode={postcode}")]
         //public async Task<ActionResult<IList<Cities>>> GetStreet(string postcode)

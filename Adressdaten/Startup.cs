@@ -29,7 +29,7 @@ namespace Adressdaten
         {
             services.AddDbContext<AdressdatenContext>(opt =>
                 opt.UseInMemoryDatabase("AdressdatenList"));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddJsonOptions(o => { o.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,7 +51,9 @@ namespace Adressdaten
 
             using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             using (var context = scope.ServiceProvider.GetService<AdressdatenContext>())
+            {
                 context.Database.EnsureCreated();
+            }
         }
     }
 }
