@@ -5,7 +5,8 @@
     <title>Adressen</title>
 </head>
 <body>
-    <input type="text" id="input" oninput="adresseAusgabe()"/>
+    <input type="text" id="inputCity" oninput="getAddress(false)"/>
+    <input type="text" id="inputStreet" oninput="getAddress(true)"/>
     
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

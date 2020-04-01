@@ -48,6 +48,10 @@ namespace Adressdaten
             app.UseStaticFiles();
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            using (var context = scope.ServiceProvider.GetService<AdressdatenContext>())
+                context.Database.EnsureCreated();
         }
     }
 }
