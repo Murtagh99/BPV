@@ -13,28 +13,22 @@
 
 function readInput(indicator) {
     let city = document.getElementById("inputCity").value;
-    let re = /^\d+/
-    let postcode;
+    let street = document.getElementById("inputStreet").value;
+    let matching = city.match(/^\d+/);
+    let url = "api/adressdaten";
 
-    if (indicator && !document.getElementById("inputStreet").value) {
-        return "api/adressdaten/streetpostalcode=" + city.match(re)[0]
+    if (indicator && matching[0].length === 5) {
+        url = url.concat("/Street/postcode=" + matching[0]);
+        if (street) {
+            return url.concat("/street=" + street.toLowerCase());
+        }
+    } else if (!indicator) {
+        url = url.concat("/City/");
+        if (matching) {
+            return url.concat("postcode=" + matching[0])
+        } else if (city) {
+            return url.concat("name=" + city.toLowerCase())
+        }
     }
-
-    else if (indicator) {
-        return "api/adressdaten/postalcode=" + city.match(re)[0] + "&street=" + document.getElementById("inputStreet").value.toLowerCase()
-    }
-
-    else if (!city) {
-        return "api/adressdaten"
-    }
-
-    else if (postcode = city.match(re)) {      
-        return "api/adressdaten/postcode=" + postcode[0];
-    }
-
-    else {
-        return "api/adressdaten/name=" + city.toLowerCase();
-    }
-
-    
+    return url;
 }

@@ -9,20 +9,20 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Adressdaten.Models
 {
-    public class Streets
+    public class Street
     {
         [Key]
         public string Name { get; set; }
         public string PostCodeFK { get; set; }
         [ForeignKey("PostCodeFK")]
-        public Cities Cities { get; set; }
+        public City City { get; set; }
     }
-    public class Cities
+    public class City
     {
         [Key]
         public string PostCode { get; set; }
         public string Name { get; set; }
         [ForeignKey("PostCodeFK")]
-        public IList<Streets> Streets { get; set; }
+        public IList<Street> Streets { get; set; }
     }
 }

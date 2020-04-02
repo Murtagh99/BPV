@@ -12,10 +12,10 @@ namespace Adressdaten.Imports
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        public Streets ConvertImportStreet()
-        {
-            return new Streets();
-        }
+        //public Street ConvertImportStreet()
+        //{
+        //    return new Street();
+        //}
     }
 
     public class ImportCity
@@ -29,20 +29,20 @@ namespace Adressdaten.Imports
         [JsonProperty("streets")]
         public IList<ImportStreet> Streets { get; set; }
 
-        public IList<Streets> GetStreets()
-        {
-            IList<Streets> streets = new List<Streets>();
-            foreach(ImportStreet street in Streets)
-            {
-                streets.Add(street.ConvertImportStreet());
-            }
-            return streets;
-        }
+        //public IList<Street> GetStreets()
+        //{
+        //    IList<Street> streets = new List<Street>();
+        //    foreach(ImportStreet street in Streets)
+        //    {
+        //        streets.Add(street.ConvertImportStreet());
+        //    }
+        //    return streets;
+        //}
 
-        public Cities ConvertImportCities()
-        {
-            return new Cities { Name = Name, PostCode = PostCode, Streets = this.GetStreets() };
-        }
+        //public City ConvertImportCities()
+        //{
+        //    return new City { Name = Name, PostCode = PostCode, Streets = this.GetStreets() };
+        //}
 
     }
 }
