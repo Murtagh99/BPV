@@ -20,15 +20,17 @@ function readInput(indicator) {
     if (indicator && matching[0].length === 5) {
         url = url.concat("/Street/postcode=" + matching[0]);
         if (street) {
-            return url.concat("/street=" + street.toLowerCase());
+            url = url.concat("/street=" + street.toLowerCase());
         }
     } else if (!indicator) {
-        url = url.concat("/City/");
+        url = url.concat("/City");
         if (matching) {
-            return url.concat("postcode=" + matching[0])
+            url = url.concat("/postcode=" + matching[0])
         } else if (city) {
-            return url.concat("name=" + city.toLowerCase())
+            url = url.concat("/name=" + city.toLowerCase())
         }
+    } else {
+        url = url.concat("/norequest")
     }
     return url;
 }

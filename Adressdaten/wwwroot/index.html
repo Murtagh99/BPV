@@ -2,15 +2,27 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
     <title>Adressen</title>
 </head>
 <body>
+    <label for="inputCity">Plz oder Ort</label>
     <input type="text" id="inputCity" oninput="getAddress(false)"/>
+    <label for="inputStreet">Street</label>
     <input type="text" id="inputStreet" oninput="getAddress(true)"/>
     
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
     <script src="site.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column
+        }
+        input {
+            width: 20em;
+        }
+    </style>
 </body>
 </html>

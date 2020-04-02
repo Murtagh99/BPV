@@ -11,38 +11,17 @@ namespace Adressdaten.Imports
     {
         [JsonProperty("name")]
         public string Name { get; set; }
-
-        //public Street ConvertImportStreet()
-        //{
-        //    return new Street();
-        //}
     }
 
     public class ImportCity
     {
         [JsonProperty("postCode")]
-        public string PostCode { get; set; }
+        public int PostCode { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }
 
         [JsonProperty("streets")]
         public IList<ImportStreet> Streets { get; set; }
-
-        //public IList<Street> GetStreets()
-        //{
-        //    IList<Street> streets = new List<Street>();
-        //    foreach(ImportStreet street in Streets)
-        //    {
-        //        streets.Add(street.ConvertImportStreet());
-        //    }
-        //    return streets;
-        //}
-
-        //public City ConvertImportCities()
-        //{
-        //    return new City { Name = Name, PostCode = PostCode, Streets = this.GetStreets() };
-        //}
-
     }
 }

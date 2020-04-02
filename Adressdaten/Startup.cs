@@ -25,10 +25,16 @@ namespace Adressdaten
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        //public void ConfigureServices(IServiceCollection services)
+        //{
+        //    services.AddDbContext<AdressdatenContext>(opt =>
+        //        opt.UseInMemoryDatabase("AdressdatenList"));
+        //    services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddJsonOptions(o => { o.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; });
+        //}
+
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AdressdatenContext>(opt =>
-                opt.UseInMemoryDatabase("AdressdatenList"));
+            services.AddDbContext<AdressdatenContext>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddJsonOptions(o => { o.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; });
         }
 
@@ -49,11 +55,11 @@ namespace Adressdaten
             app.UseHttpsRedirection();
             app.UseMvc();
 
-            using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-            using (var context = scope.ServiceProvider.GetService<AdressdatenContext>())
-            {
-                context.Database.EnsureCreated();
-            }
+            //using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            //using (var context = scope.ServiceProvider.GetService<AdressdatenContext>())
+            //{
+            //    context.Database.EnsureCreated();
+            //}
         }
     }
 }

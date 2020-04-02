@@ -1,6 +1,6 @@
 [
   {
-    "postCode": "44139",
+    "postCode": 44139,
     "name": "Dortmund",
     "streets": [
       {
@@ -12,7 +12,7 @@
     ]
   },
   {
-    "postCode": "59399",
+    "postCode": 59399,
     "name": "Olfen",
     "streets": [
       {
@@ -27,7 +27,7 @@
     ]
   },
   {
-    "postCode": "59379",
+    "postCode": 59379,
     "name": "Selm",
     "streets": [
       {
