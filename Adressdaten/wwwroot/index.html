@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
-    <title>best API ever</title>
+    <title>Mitglieder</title>
 </head>
 <body>
-    <h1>Hier findest du alles</h1>
     <!--<label for="inputCity">Plz oder Ort</label>-->
     <input type="text" id="inputCity" oninput="getAddress(false)" placeholder="Plz oder Ort"/>
     <!--<label for="inputStreet">Street</label>-->
     <input type="text" id="inputStreet" oninput="getAddress(true)" placeholder="Strasse"/>
+    <button type="button" onclick="getMitglieder()">Mitglieder anzeigen</button>
+    <div id="mitgliederContainer"></div>
     
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -20,7 +21,6 @@
         body {
             display: flex;
             flex-direction: column ;
-            background-color: mediumvioletred;
         }
         input {
             width: 20em;
@@ -32,16 +32,10 @@
             box-sizing: border-box;
             transition: .3s
         }
-        input:focus{
+        input:focus {
             border-color:dodgerblue;
             box-shadow:0 0 8px 0 dodgerBlue;
 
-        }
-
-        input:hover {
-            -webkit-transform: rotateZ(-30deg);
-            -ms-transform: rotateZ(-30deg);
-            transform: rotateZ(-30deg);
         }
     </style>
 </body>

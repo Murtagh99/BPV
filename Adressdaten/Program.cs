@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,24 +19,18 @@ namespace Adressdaten
         public static void Main(string[] args)
         {
 
-            string dbName = "Adress.db";
+            string dbName = "Mitglied.db";
             if (File.Exists(dbName))
             {
                 File.Delete(dbName);
             }
-            using (var dbContext = new AdressdatenContext())
+            using (var dbContext = new MitgliederContext())
             {
                 dbContext.Database.EnsureCreated();
-                var importedCities = JsonConvert.DeserializeObject<ImportCity[]>(File.ReadAllText("Adressen/Cities.json"));
-                if (!dbContext.Cities.Any())
+                var importedMitglieder = JsonConvert.DeserializeObject<ImportMitglied[]>(File.ReadAllText("Adressen/Mitglieder.json"));
+                if (!dbContext.Mitglieder.Any())
                 {
-                    dbContext.Cities.AddRange(importedCities.Select(city => new City { PostCode = city.PostCode, Name = city.Name }).ToArray());
-                    dbContext.SaveChanges();
-                }
-                if (!dbContext.Streets.Any())
-                {
-                    var streetsImport = importedCities.Select(city => city.Streets.Select(street => new Street { PostCodeFK = city.PostCode, Name = street.Name })).SelectMany(i => i);
-                    dbContext.Streets.AddRange(streetsImport.ToArray());
+                    dbContext.Mitglieder.AddRange(importedMitglieder.Select(mitglied => new Mitglied { Mitgliedsnummer = mitglied.Mitgliedsnummer, Vorname = mitglied.Vorname, Nachname = mitglied.Nachname, Status = mitglied.Status, Beitritt = DateTime.ParseExact(mitglied.Beitritt, "dd.MM.yyyy", CultureInfo.InvariantCulture) }).ToArray());
                     dbContext.SaveChanges();
                 }
             }

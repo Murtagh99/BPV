@@ -8,21 +8,20 @@ using System.Reflection;
 
 namespace Adressdaten.Models
 {
-    public class AdressdatenContext : DbContext
+    public class MitgliederContext : DbContext
     {
         //public AdressdatenContext(DbContextOptions<AdressdatenContext> options)
         //    : base(options)
         //{
         //}
 
-        public AdressdatenContext() : base() { }
+        public MitgliederContext() : base() { }
 
-        public DbSet<City> Cities { get; set; }
-        public DbSet<Street> Streets { get; set; }
+        public DbSet<Mitglied> Mitglieder { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Filename=Adress.db", options =>
+            optionsBuilder.UseSqlite("Filename=Mitglied.db", options =>
             {
                 options.MigrationsAssembly(Assembly.GetExecutingAssembly().FullName);
             });
@@ -31,25 +30,23 @@ namespace Adressdaten.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<City>().ToTable("Cities", "Cities");
-            modelBuilder.Entity<City>(entity =>
+            modelBuilder.Entity<Mitglied>().ToTable("Mitglieder", "Mitglieder");
+            modelBuilder.Entity<Mitglied>(entity =>
             {
-                entity.HasKey(e => e.PostCode);
+                entity.HasKey(e => e.Mitgliedsnummer);
                 //entity.HasIndex(e => e.Title).IsUnique();
                 //entity.Property(e => e.DateTimeAdd).HasDefaultValueSql("CURRENT_TIMESTAMP");
             });
 
-            modelBuilder.Entity<Street>().ToTable("Streets", "Streets");
-            modelBuilder.Entity<Street>().HasOne(i => i.City);
-            modelBuilder.Entity<Street>(entity =>
-            {
-                entity.HasKey(e => e.StreetId);
-                entity.Property("StreetId").ValueGeneratedOnAdd();
-                //entity.HasIndex(e => e.Title).IsUnique();
-                //entity.Property(e => e.DateTimeAdd).HasDefaultValueSql("CURRENT_TIMESTAMP");
-            });
-
-            base.OnModelCreating(modelBuilder);
+            //modelBuilder.Entity<Street>().ToTable("Streets", "Streets");
+            //modelBuilder.Entity<Street>().HasOne(i => i.City);
+            //modelBuilder.Entity<Street>(entity =>
+            //{
+            //    entity.HasKey(e => e.StreetId);
+            //    entity.Property("StreetId").ValueGeneratedOnAdd();
+            //    //entity.HasIndex(e => e.Title).IsUnique();
+            //    //entity.Property(e => e.DateTimeAdd).HasDefaultValueSql("CURRENT_TIMESTAMP");
+            //});
 
             base.OnModelCreating(modelBuilder);
             //var importedCities = JsonConvert.DeserializeObject<ImportCity[]>(System.IO.File.ReadAllText("Adressen/Cities.json"));

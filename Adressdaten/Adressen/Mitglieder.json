@@ -1,0 +1,121 @@
+[
+  {
+    "mitgliedsnummer": 1,
+    "vorname": "Daniela",
+    "nachname": "Sobbe",
+    "status": "aktiv",
+    "beitritt": "24.08.2019"
+  },
+  {
+    "mitgliedsnummer": 2,
+    "vorname": "Nils",
+    "nachname": "Böckenbrink",
+    "status": "aktiv",
+    "beitritt": "24.08.2019"
+  },
+  {
+    "mitgliedsnummer": 3,
+    "vorname": "Jan",
+    "nachname": "Hensler",
+    "status": "aktiv",
+    "beitritt": "24.08.2019"
+  },
+  {
+    "mitgliedsnummer": 4,
+    "vorname": "Pascal",
+    "nachname": "Zöller",
+    "status": "aktiv",
+    "beitritt": "24.08.2019"
+  },
+  {
+    "mitgliedsnummer": 5,
+    "vorname": "Raphael",
+    "nachname": "Balke",
+    "status": "balkesk",
+    "beitritt": "24.08.2019"
+  },
+  {
+    "mitgliedsnummer": 6,
+    "vorname": "Marius",
+    "nachname": "Vagedes",
+    "status": "aktiv",
+    "beitritt": "24.08.2019"
+  },
+  {
+    "mitgliedsnummer": 7,
+    "vorname": "Jannik",
+    "nachname": "Latomski",
+    "status": "aktiv",
+    "beitritt": "30.08.2019"
+  },
+  {
+    "mitgliedsnummer": 8,
+    "vorname": "Jan",
+    "nachname": "Holtrode",
+    "status": "aktiv",
+    "beitritt": "31.08.2019"
+  },
+  {
+    "mitgliedsnummer": 9,
+    "vorname": "Carola",
+    "nachname": "Sobbe",
+    "status": "passiv",
+    "beitritt": "27.09.2019"
+  },
+  {
+    "mitgliedsnummer": 10,
+    "vorname": "Moritz",
+    "nachname": "Schulze-Twenhöven",
+    "status": "aktiv",
+    "beitritt": "28.09.2019"
+  },
+  {
+    "mitgliedsnummer": 11,
+    "vorname": "Nico",
+    "nachname": "Fischer",
+    "status": "aktiv",
+    "beitritt": "19.10.2019"
+  },
+  {
+    "mitgliedsnummer": 12,
+    "vorname": "Lara",
+    "nachname": "Schulte",
+    "status": "passiv",
+    "beitritt": "08.11.2019"
+  },
+  {
+    "mitgliedsnummer": 13,
+    "vorname": "Alexander",
+    "nachname": "Wiesmann",
+    "status": "aktiv",
+    "beitritt": "08.11.2019"
+  },
+  {
+    "mitgliedsnummer": 14,
+    "vorname": "Marius",
+    "nachname": "May",
+    "status": "aktiv",
+    "beitritt": "14.12.2019"
+  },
+  {
+    "mitgliedsnummer": 15,
+    "vorname": "Christopher",
+    "nachname": "May",
+    "status": "aktiv",
+    "beitritt": "19.01.2020"
+  },
+  {
+    "mitgliedsnummer": 16,
+    "vorname": "Simon",
+    "nachname": "Mors",
+    "status": "aktiv",
+    "beitritt": "31.01.2020"
+  },
+  {
+    "mitgliedsnummer": 17,
+    "vorname": "Carolin",
+    "nachname": "Becker",
+    "status": "aktiv",
+    "beitritt": "04.03.2020"
+  }
+]

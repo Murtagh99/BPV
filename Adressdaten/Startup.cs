@@ -36,7 +36,7 @@ namespace Adressdaten
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AdressdatenContext>();
+            services.AddDbContext<MitgliederContext>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddJsonOptions(o => { o.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; });
         }
 
